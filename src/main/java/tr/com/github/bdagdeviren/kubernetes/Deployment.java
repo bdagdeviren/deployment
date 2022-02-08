@@ -1,13 +1,14 @@
 package tr.com.github.bdagdeviren.kubernetes;
 
 import com.ftpix.sparknnotation.Sparknotation;
-import com.github.lalyos.jfiglet.FigletFont;
 import org.apache.log4j.MDC;
+import tr.com.github.bdagdeviren.kubernetes.Config.Banner;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
+import java.util.Locale;
+import java.util.Properties;
 
 public class Deployment {
     public static void main(String[] args) throws IOException {
@@ -15,11 +16,13 @@ public class Deployment {
         long pid = rt.getPid();
         MDC.put("PID", pid);
 
-        ClassLoader classLoader = Deployment.class.getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream("small.flf");
+        Properties prop = new Properties();
+        prop.load(Deployment.class.getClassLoader().getResourceAsStream("project.properties"));
+        String name = prop.getProperty("name").toUpperCase(Locale.ROOT);
+        String description = prop.getProperty("descriptions");
+        String version = prop.getProperty("version");
 
-        String asciiArt1 = FigletFont.convertOneLine(inputStream, "K8S");
-        System.out.print(asciiArt1);
+        System.out.println(Banner.write(name,version,description));
 
         Sparknotation.init();
     }

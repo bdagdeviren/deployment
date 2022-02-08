@@ -7,10 +7,14 @@
     <groupId>tr.com.github.bdagdeviren.kubernetes</groupId>
     <artifactId>deployment</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <description>Kubernetes</description>
 
     <properties>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
+        <java.spark.version>1.17</java.spark.version>
+        <lombok.version>1.18.22</lombok.version>
+        <jfiglet.version>0.0.8</jfiglet.version>
         <slf4j.version>1.7.35</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
     </properties>
@@ -19,19 +23,19 @@
         <dependency>
             <groupId>com.ftpix</groupId>
             <artifactId>sparknotation</artifactId>
-            <version>1.17</version>
+            <version>${java.spark.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
+            <version>${lombok.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.github.lalyos</groupId>
             <artifactId>jfiglet</artifactId>
-            <version>0.0.8</version>
+            <version>${jfiglet.version}</version>
         </dependency>
 
         <dependency>
@@ -50,5 +54,15 @@
             <version>${log4j.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+    </build>
 
 </project>
