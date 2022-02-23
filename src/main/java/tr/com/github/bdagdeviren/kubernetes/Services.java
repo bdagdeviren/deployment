@@ -9,10 +9,14 @@ import static tr.com.github.bdagdeviren.kubernetes.config.Properties.port;
 
 public class Services {
 
-    public static void main(String[] args) {
+    public static void configure(){
         JulTinylogBridge.activate();
         Properties.parseConfig();
         Banner.write();
+    }
+
+    public static void main(String[] args) {
+        Services.configure();
         Server server = new Server(port);
         server.startServer();
     }
