@@ -5,7 +5,7 @@ import tr.com.github.bdagdeviren.kubernetes.config.Banner;
 import tr.com.github.bdagdeviren.kubernetes.config.Properties;
 import tr.com.github.bdagdeviren.kubernetes.server.Server;
 
-import static tr.com.github.bdagdeviren.kubernetes.config.Properties.*;
+import static tr.com.github.bdagdeviren.kubernetes.config.Properties.port;
 
 public class Services {
 
