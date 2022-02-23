@@ -37,6 +37,7 @@ public class Server extends RouterNanoHTTPD {
         JulTinylogBridge.activate();
         Properties.parseConfig();
         Banner.write();
+        Properties.writeConfiguration();
     }
 
     public void startServer() {
