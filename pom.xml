@@ -5,31 +5,28 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tr.com.github.bdagdeviren.kubernetes</groupId>
-    <artifactId>deployment</artifactId>
+    <artifactId>services</artifactId>
     <version>1.0-SNAPSHOT</version>
     <description>Kubernetes</description>
 
     <properties>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven.compiler.source>11</maven.compiler.source>
-        <java.spark.version>1.17</java.spark.version>
-        <lombok.version>1.18.22</lombok.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <nanohttpd.version>2.3.1</nanohttpd.version>
+        <tinylog.version>2.4.1</tinylog.version>
         <jfiglet.version>0.0.8</jfiglet.version>
-        <slf4j.version>1.7.35</slf4j.version>
-        <log4j.version>1.2.17</log4j.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>com.ftpix</groupId>
-            <artifactId>sparknotation</artifactId>
-            <version>${java.spark.version}</version>
+            <groupId>org.nanohttpd</groupId>
+            <artifactId>nanohttpd</artifactId>
+            <version>${nanohttpd.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
+            <groupId>org.nanohttpd</groupId>
+            <artifactId>nanohttpd-nanolets</artifactId>
+            <version>${nanohttpd.version}</version>
         </dependency>
 
         <dependency>
@@ -38,20 +35,21 @@
             <version>${jfiglet.version}</version>
         </dependency>
 
+
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
+            <groupId>org.tinylog</groupId>
+            <artifactId>tinylog-api</artifactId>
+            <version>${tinylog.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
+            <groupId>org.tinylog</groupId>
+            <artifactId>tinylog-impl</artifactId>
+            <version>${tinylog.version}</version>
         </dependency>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
+            <groupId>org.tinylog</groupId>
+            <artifactId>jul-tinylog</artifactId>
+            <version>${tinylog.version}</version>
         </dependency>
     </dependencies>
 
@@ -59,10 +57,12 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/resources-filtered</directory>
                 <filtering>true</filtering>
             </resource>
         </resources>
-
     </build>
 
 </project>
