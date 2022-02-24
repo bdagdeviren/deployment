@@ -33,6 +33,10 @@ public class Server extends RouterNanoHTTPD {
         setNotImplementedHandler(NotImplemented.class);
 
         addRoute("/", Index.class);
+        addRoute("/css/:name", Index.class);
+        addRoute("/js/:name", Index.class);
+        addRoute("/images/:name", Index.class);
+
         Logger.info("Successfully initialize all routes");
     }
 
