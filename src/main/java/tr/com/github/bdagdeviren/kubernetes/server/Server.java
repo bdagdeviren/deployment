@@ -7,7 +7,9 @@ import org.tinylog.jul.JulTinylogBridge;
 import tr.com.github.bdagdeviren.kubernetes.config.Banner;
 import tr.com.github.bdagdeviren.kubernetes.config.Properties;
 import tr.com.github.bdagdeviren.kubernetes.handler.Index;
+import tr.com.github.bdagdeviren.kubernetes.handler.impl.BadRequest;
 import tr.com.github.bdagdeviren.kubernetes.handler.impl.NotFound;
+import tr.com.github.bdagdeviren.kubernetes.handler.impl.NotImplemented;
 
 import static tr.com.github.bdagdeviren.kubernetes.config.Properties.port;
 
@@ -28,12 +30,13 @@ public class Server extends RouterNanoHTTPD {
     public void addMappings() {
         Logger.info("Initialize all routes");
         setNotFoundHandler(NotFound.class);
+        setNotImplementedHandler(NotImplemented.class);
 
         addRoute("/", Index.class);
         Logger.info("Successfully initialize all routes");
     }
 
-    public void configure(){
+    public static void configure(){
         JulTinylogBridge.activate();
         Properties.parseConfig();
         Banner.write();
@@ -42,7 +45,7 @@ public class Server extends RouterNanoHTTPD {
 
     public void startServer() {
         try {
-            configure();
+//            configure();
             addMappings();
             start(SOCKET_READ_TIMEOUT, false);
             Logger.info("Running! Point your browsers to :"+ port);
