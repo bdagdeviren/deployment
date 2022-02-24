@@ -49,10 +49,9 @@ public class Server extends RouterNanoHTTPD {
 
     public void startServer() {
         try {
-//            configure();
             addMappings();
             start(SOCKET_READ_TIMEOUT, false);
-            Logger.info("Running! Point your browsers to :"+ port);
+            Logger.info("Running! Point your browsers to -> "+ port);
         } catch (IOException ioe) {
             Logger.error("Couldn't start server -> " + ioe.getMessage());
         }
