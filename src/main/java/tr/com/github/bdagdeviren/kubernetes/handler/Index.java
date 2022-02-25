@@ -1,8 +1,6 @@
 package tr.com.github.bdagdeviren.kubernetes.handler;
 
 import fi.iki.elonen.NanoHTTPD;
-import fi.iki.elonen.NanoHTTPD.Response.IStatus;
-import fi.iki.elonen.NanoHTTPD.Response.Status;
 import fi.iki.elonen.router.RouterNanoHTTPD;
 import fi.iki.elonen.router.RouterNanoHTTPD.DefaultHandler;
 import org.tinylog.Logger;
@@ -10,8 +8,6 @@ import tr.com.github.bdagdeviren.kubernetes.handler.impl.NotFound;
 
 import java.io.*;
 import java.util.Map;
-
-import static fi.iki.elonen.NanoHTTPD.MIME_PLAINTEXT;
 
 public class Index extends DefaultHandler {
     public String getText() {
@@ -52,9 +48,5 @@ public class Index extends DefaultHandler {
             return new NotFound().get(uriResource, urlParams, session);
         }
 
-    }
-
-    protected BufferedInputStream fileToInputStream(File fileOrdirectory) throws IOException {
-        return new BufferedInputStream(new FileInputStream(fileOrdirectory));
     }
 }

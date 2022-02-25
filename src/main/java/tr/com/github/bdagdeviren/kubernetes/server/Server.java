@@ -7,6 +7,7 @@ import org.tinylog.jul.JulTinylogBridge;
 import tr.com.github.bdagdeviren.kubernetes.config.Banner;
 import tr.com.github.bdagdeviren.kubernetes.config.Properties;
 import tr.com.github.bdagdeviren.kubernetes.handler.Index;
+import tr.com.github.bdagdeviren.kubernetes.handler.Version;
 import tr.com.github.bdagdeviren.kubernetes.handler.impl.BadRequest;
 import tr.com.github.bdagdeviren.kubernetes.handler.impl.NotFound;
 import tr.com.github.bdagdeviren.kubernetes.handler.impl.NotImplemented;
@@ -33,6 +34,8 @@ public class Server extends RouterNanoHTTPD {
         setNotImplementedHandler(NotImplemented.class);
 
         addRoute("/", Index.class);
+        addRoute("/version", Version.class);
+
         addRoute("/css/:name", Index.class);
         addRoute("/js/:name", Index.class);
         addRoute("/images/:name", Index.class);

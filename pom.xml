@@ -36,6 +36,11 @@
             <version>${jfiglet.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20211205</version>
+        </dependency>
 
         <dependency>
             <groupId>org.tinylog</groupId>
@@ -80,8 +85,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>tr.com.github.bdagdeviren.kubernetes.Pods</mainClass>
+                            <mainClass>tr.com.github.bdagdeviren.kubernetes.Services</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -116,7 +120,14 @@
                     <imageName>${project.artifactId}</imageName>
                     <mainClass>tr.com.github.bdagdeviren.kubernetes.Services</mainClass>
                     <buildArgs>
+<!--                        <buildArg>&#45;&#45;static</buildArg>-->
+<!--                        <buildArg>&#45;&#45;libc=musl</buildArg>-->
                         <buildArg>--no-fallback</buildArg>
+                        <buildArg>--allow-incomplete-classpath</buildArg>
+                        <buildArg>-H:IncludeResources='.*.properties'</buildArg>
+                        <buildArg>-H:IncludeResources='.*.flf'</buildArg>
+                        <buildArg>-H:IncludeResources='ui/.*.*'</buildArg>
+                        <buildArg>-H:ReflectionConfigurationResources='graalvm-config/reflect-config.json'</buildArg>
                     </buildArgs>
                 </configuration>
             </plugin>
