@@ -94,37 +94,6 @@
                     </execution>
                 </executions>
             </plugin>
-                 <!--
-            <plugin>
-                <groupId>org.graalvm.buildtools</groupId>
-                <artifactId>native-maven-plugin</artifactId>
-                <version>${native.maven.plugin.version}</version>
-                <extensions>true</extensions>
-                <executions>
-                    <execution>
-                        <id>build-native</id>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
-                <configuration>
-                    <imageName>${project.artifactId}</imageName>
-                    <mainClass>tr.com.github.bdagdeviren.kubernetes.Services</mainClass>
-                    <buildArgs>
-                        <buildArg>--static</buildArg>
-                        <buildArg>--libc=musl</buildArg>
-                        <buildArg>--no-fallback</buildArg>
-                        <buildArg>--allow-incomplete-classpath</buildArg>
-                        <buildArg>-H:IncludeResources='.*.properties'</buildArg>
-                        <buildArg>-H:IncludeResources='.*.flf'</buildArg>
-                        <buildArg>-H:IncludeResources='ui/.*.*'</buildArg>
-                        <buildArg>-H:ReflectionConfigurationResources='graalvm-config/reflect-config.json'</buildArg>
-                    </buildArgs>
-                </configuration>
-            </plugin>
-                 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
