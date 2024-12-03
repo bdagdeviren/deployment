@@ -13,7 +13,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
         <java.spark.version>1.17</java.spark.version>
-        <lombok.version>1.18.22</lombok.version>
+        <lombok.version>1.18.34</lombok.version>
         <jfiglet.version>0.0.8</jfiglet.version>
         <slf4j.version>1.7.35</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
